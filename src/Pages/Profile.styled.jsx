@@ -12,7 +12,7 @@ export const ProfilePost = styled.img`
     }
 
     &.Post-img{
-        min-height: 18.3em;
+        height: 18.3em;
         width: 18.3em;
 
         background-color: red;
@@ -209,6 +209,11 @@ export const ProfileWrapper = styled.div`
 
     &.Tagged-tab{
         width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 0.5rem;
 
         position: absolute;
         top: 0;

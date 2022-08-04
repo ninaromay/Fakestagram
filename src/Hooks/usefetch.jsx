@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
 
-export const useFetch = () =>{
+export const useFetch = ({url} , endpoint) =>{
     const [fetcho, setFetcho] = useState({loading: false})
     let heroku = import.meta.env.VITE_HEROKU ? import.meta.env.VITE_HEROKU : 'http://localhost:3010/'
-    console.log(heroku);
+    
+    if(url){
+        heroku += endpoint + url
+    }
+
+    // console.log(url);
+    // console.log(endpoint);
+    // console.log(heroku);
+
     useEffect(() => {
         fetch(heroku)
         .then( res => res.json())
@@ -17,3 +25,4 @@ export const useFetch = () =>{
 
     return  fetcho
 }
+

@@ -2,18 +2,27 @@ import { useContext, useState } from 'react'
 import { GlobalContext } from '../Global.context'
 import { Logo } from '../Styled/Global.styled'
 import {ProfileInfo, ProfilePost, ProfileTab, ProfileWrapper} from './Profile.styled'
+import { useParams } from 'react-router-dom'
+import { useFetch } from '../Hooks/usefetch'
 
-export const Profile = () => {
+export const Profile = ({}) => {
+    const {id} = useParams()
+    let ide = id? id : 0;
 
     let { data, setData } = useContext(GlobalContext)
     let { submenu } = data
+
 
     let { users, setUsers } = useContext(GlobalContext)
 
     const [active, setActive] = useState(0)
 
+    let tagged = useFetch( users[ide].user , 'profile/')
+    let {tagged_posts, loading} = tagged
+    console.log(tagged_posts);
+    console.log(loading);
+
     const activate = (value) => {
-        console.log(value);
         return setActive(value) 
     }
 
@@ -24,22 +33,22 @@ export const Profile = () => {
             <ProfileWrapper className="ProfileWrap">
                 <ProfileWrapper className="Top">
                     <ProfileWrapper className="Img-wrapper">
-                        <ProfilePost src={users[0].user.img} className="Profile-pic"/>
+                        <ProfilePost src={users[ide].user.img} className="Profile-pic"/>
                     </ProfileWrapper>
                     <ProfileWrapper className="Text-wrapper">
                         <ProfileWrapper className="Text-top">
-                            <ProfileInfo className="Top">{users[0].user.name}</ProfileInfo>
+                            <ProfileInfo className="Top">{users[ide].user.name}</ProfileInfo>
                             <ProfileTab className="Edit" >Edit Profile</ProfileTab>
                             <Logo src={submenu[2].src}/>
                         </ProfileWrapper>
                         <ProfileWrapper className='Text-middle'>
-                            <ProfileInfo><span>{users[0].posts.length}</span> posts</ProfileInfo>
-                            <ProfileInfo><span>{users[0].followers.length}</span> followers</ProfileInfo>
-                            <ProfileInfo><span>{users[0].following.length}</span> following</ProfileInfo>
+                            <ProfileInfo><span>{users[ide].posts.length}</span> posts</ProfileInfo>
+                            <ProfileInfo><span>{users[ide].followers.length}</span> followers</ProfileInfo>
+                            <ProfileInfo><span>{users[ide].following.length}</span> following</ProfileInfo>
                         </ProfileWrapper>
                         <ProfileWrapper className="Text-bottom">
-                            <ProfileInfo className='Title'>{users[0].user.text}</ProfileInfo>
-                            <ProfileInfo className='User-content'>{users[0].user.content}</ProfileInfo>
+                            <ProfileInfo className='Title'>{users[ide].user.text}</ProfileInfo>
+                            <ProfileInfo className='User-content'>{users[ide].user.content}</ProfileInfo>
                         </ProfileWrapper>
                     </ProfileWrapper>
                 </ProfileWrapper>
@@ -73,7 +82,7 @@ export const Profile = () => {
                     <ProfileWrapper className='Tabs-wrapper'>
                         <ProfileWrapper className={`Posts-tab  ${active === 0 ? 'Active' : 'Nonactive' }`} >
                             {
-                                users[0].posts.map( (post) =>
+                                users[ide].posts.map( (post) =>
                                     <ProfileWrapper className='Post-container' key={post.id}>
                                         <ProfilePost className='Post-img' src={post.img} />
                                         <ProfilePost className='Post-layer' src='/assets/layer.svg' />
@@ -83,7 +92,7 @@ export const Profile = () => {
                         </ProfileWrapper>
                         <ProfileWrapper className={`Videos-tab ${active === 1 ? 'Active' : 'Nonactive' }`} >
                             {
-                                users[0].videos.map( (video) =>
+                                users[ide].videos.map( (video) =>
                                     <ProfileWrapper className='Post-container' key={video.id}>
                                         <ProfilePost className='Post-img' src={video.video} />
                                         <ProfilePost className='Post-layer' src='/assets/layer.svg' />
@@ -105,14 +114,20 @@ export const Profile = () => {
                             </ProfileWrapper>
                         </ProfileWrapper>
                         <ProfileWrapper className={`Tagged-tab ${active === 3 ? 'Active' : 'Nonactive' }`} >
-
+                            { 
+                                loading &&  tagged_posts.map(tag => 
+                                    <ProfileWrapper className='Post-container' key={tag.id}>
+                                        <ProfilePost className='Post-img' src={tag.img} />
+                                    </ProfileWrapper>    
+                                )
+                            }
                         </ProfileWrapper>           
                     </ProfileWrapper>
                 </ProfileWrapper>
                 <ProfileWrapper className='Footer'>
                     {
-                        footer.map((foot) =>
-                            <ProfileInfo className='Footer-text'>
+                        footer.map((foot, i) =>
+                            <ProfileInfo className='Footer-text' key={i}>
                                 {foot}
                             </ProfileInfo>
                         )
