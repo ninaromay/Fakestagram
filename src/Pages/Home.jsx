@@ -1,6 +1,9 @@
 import { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components"
 import { CardLi, CardUl } from "../Components/Header.Styled";
+import { Iconos } from "../Components/Iconos";
+import { PostView } from "../Components/PostView";
 import { GlobalContext } from "../Global.context";
 import { Logo, Wrapper } from "../Styled/Global.styled"
 import { Post, PostImg, Stories, Text, Comment } from "./Home.styled"
@@ -9,38 +12,70 @@ export const Home = () => {
 
     let {data, setData } = useContext(GlobalContext);
     let { menu, home, footer } = data 
-    // let { onSearch } = menu
-
     let { users, setUsers } = useContext(GlobalContext);
-    // console.log(users);
-    // let {data, users, suggested} = datos
-    // let {} = home
     let {suggested, setSuggested } = useContext(GlobalContext);
 
     const setUnsearch = () => setData({...data, menu : { ...menu, onSearch : false}})
     
     const shortName = (value) => {return value.slice(0, 9) + '...'}
-
     const randomNum = (value) => {return Math.floor(Math.random() * value)}
+
+    const [foto, setFoto] = useState(0)
+
+    const next = () =>{
+        foto < 6 ? setFoto(foto + 1) : foto
+        console.log(foto);
+    }
+    const prev = () => {
+        foto > 0 ? setFoto(foto - 1) : 0
+    }
+
+    const slide = () => {
+        return `translateX(-${100/12.5 * foto}%)`
+    }
+
+    const [ view, setView ] = useState(false)
+    const [ pid, setPid] = useState(-1)
+    const [ uid, setUid] = useState(-1)
+    const viewable = (id, uid) => {
+        setView(true)
+        setPid(id)
+        setUid(uid)
+        console.log(view);
+        console.log(id);
+        console.log(uid);
+    }
+
+    const close = () => {
+        console.log('close');
+        setView(false)
+    }
+
 
     return (
         <div className="Home" >
             <Wrapper className="Home">
                 <Wrapper className="Posts">
                     <CardUl className="Stories">
-                      <Wrapper className="Stories">
+                      <Wrapper className="Stories" slide={slide()}>
                           {
-                          users.map( (use) => 
-                              use.user.id > 0 && <CardLi className='Story-wrapper' key={use.user.id}>
-                                <a href={use.user.url}>
-                                  <Stories  src='/assets/ring.png'  className="Ring"  />
-                                  <Stories  src={use.user.img} className="Story" />
-                                </a>
-                                <Text className="Story-name">{ use.user.name.length < 10 ? use.user.name : shortName(use.user.name)}</Text>
-                              </CardLi>
-                          )
+                            users.map( (use) => 
+                                use.user.id > 0 && <CardLi className='Story-wrapper' key={use.user.id}>
+                                    <NavLink to={'/profile/'+ use.user.id}>
+                                    <Stories  src='/assets/ring.png'  className="Ring"  />
+                                    <Stories  src={use.user.img} className="Story" />
+                                    </NavLink>
+                                    <Text className="Story-name">{ use.user.name.length < 10 ? use.user.name : shortName(use.user.name)}</Text>
+                                </CardLi>
+                            )
                           }
                       </Wrapper>
+                      {foto < 6 && <Wrapper className='Arrow Arrow-right' onClick={()=> next()}>
+                        <Iconos algo='arrow_right' />
+                      </Wrapper>}
+                      {foto > 0 && <Wrapper className='Arrow Arrow-left' onClick={()=> prev()}>
+                        <Iconos algo='arrow_left' />
+                      </Wrapper>}
                     </CardUl>
                     <Post className="Post">
                     {users.map( (use , i) =>
@@ -59,7 +94,7 @@ export const Home = () => {
                                     <Logo src={home.dots} />
                                 </Post>
                                 </Post>
-                                <PostImg  src={use.posts[j].img} />
+                                <PostImg  src={use.posts[j].img} onClick={() => viewable(post.id, i)}/>
                                 <Post className='Post-icons'>
                                 <Post className='Icons'>
                                     {home.icons.map((icon) => 
@@ -68,11 +103,11 @@ export const Home = () => {
                                 </Post>
                                 <Logo src={home.bookmark} className='Post-icons'/>
                                 </Post>
-                                <Post className='Post-comments'>
+                                <Post className='Post-comments' >
                                     <Text className="Likes">{use.posts[j].likes} likes</Text>
                                     <Text className='Username'>{use.user.name}</Text>
                                     <Text className='Post-content'>{use.posts[j].description}</Text>
-                                    <Text className='Post-view'>View all {use.posts[j].comments.length} {use.posts[j].comments.length > 1 ? 'comments' : 'comment'}</Text>
+                                    <Text className='Post-view' >View all {use.posts[j].comments.length} {use.posts[j].comments.length > 1 ? 'comments' : 'comment'}</Text>
                                     <Text className='Post-time'>SOME TIME AGO</Text>
                                 </Post>
                                 <Post className='Line'></Post>
@@ -92,7 +127,9 @@ export const Home = () => {
                 <Wrapper className="Suggested">
                     <Post className='Post-header'>
                         <Post className='Post-head'>
+                            <NavLink to={'/profile'}>
                             <Stories src={users[0].user.img} />
+                            </NavLink>
                             <Post className='Post-text-sug'>
                                 <Text className="Post-user-name">{users[0].user.name}</Text>
                                 <Text className="Post-user-content">{users[0].user.text}</Text>
@@ -125,6 +162,11 @@ export const Home = () => {
                     </Post>
                 </Wrapper>
             </Wrapper>
+            {
+                view && <Wrapper className='View' onClick={()=> close}>
+                    <PostView post={users[uid].posts[pid]} view={view} />
+                </Wrapper>
+            }
         </div>
     )
 }

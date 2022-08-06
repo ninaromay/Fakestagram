@@ -10,6 +10,21 @@ export const LogoI = styled.img`
     &.Search-searching{
      opacity: 0
     }
+
+    &.New-Post-logo{
+        width: 3em;
+        height: 3em;
+    }
+
+    &.Profile-tab{
+        width: 1em;
+        height: 1em;
+    }
+
+    &.Profile-logo{
+        border: 1px solid black;
+        border-radius: 50%;
+    }
 `
 export const CardUl = styled.ul`
     width: 100%;
@@ -56,6 +71,8 @@ export const CardLi = styled.li`
 
     }
 
+
+
 `
 
 export const SearchBar = styled.div`
@@ -91,4 +108,16 @@ export const SearchI = styled.input`
         outline: none;
     }
     
+`
+
+export const TextPopUps = styled.p`
+        font-size: 1em;
+        color: black;
+    &.New-post{
+
+    }
+    &.Tab{
+        margin-left: 1em;
+        font-size: 0.8em;
+    }
 `

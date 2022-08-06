@@ -1,11 +1,17 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../Global.context'
 import { Logo } from '../Styled/Global.styled'
 import {ProfileInfo, ProfilePost, ProfileTab, ProfileWrapper} from './Profile.styled'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { useFetch } from '../Hooks/usefetch'
 
-export const Profile = ({}) => {
+export const Profile = ({saved}) => {
+    const location = useLocation()
+
+    useEffect(()=>{
+        setActive(saved)
+    }, [location])
+
     const {id} = useParams()
     let ide = id? id : 0;
 
@@ -15,7 +21,7 @@ export const Profile = ({}) => {
 
     let { users, setUsers } = useContext(GlobalContext)
 
-    const [active, setActive] = useState(0)
+    const [active, setActive] = useState(saved)
 
     let tagged = useFetch( users[ide].user , 'profile/')
     let {tagged_posts, loading} = tagged
