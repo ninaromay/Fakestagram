@@ -1,5 +1,5 @@
 # Fakestagram
-![Imagen del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/IMAGEN-DEL-PROYECTO.jpg?raw=true)
+![Fakestagram-img](https://github.com/ninaromay/Fakestagram/blob/main/public/home_capture.PNG?raw=true)
 
 ## Live
 - [Github-pages-of-this-project](URL-de-github-pages-de-este-proyecto)
@@ -28,22 +28,20 @@ I've practiced a lot of routing, organicing components structures and styled com
 ## Project Preview
 Get a first look of the project
 
-![Img-01](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
-![Img-02](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
-![Img-03](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
+![Img-01](https://github.com/ninaromay/Fakestagram/blob/main/public/home_capture.PNG?raw=true)
+![Img-02](https://github.com/ninaromay/Fakestagram/blob/main/public/profile_capture.PNG?raw=true)
+![Img-03](https://github.com/ninaromay/Fakestagram/blob/main/public/nav_capture.PNG?raw=true)
 
 ## Autor ✒️
-**TU NOMBRE**
+**Nina Romay**
 
-* [micorreo@midominio.com](micorreo@midominio.com)
-* [LinkedIn](https://www.linkedin.com/in/tu-url-de-linkedin/)
-* [Behance](https://www.behance.net/tu-url-de-behance)
-* [Dribble](https://www.dribble.com/tu-url-de-dribble)
-* [Porfolio web](https://tu-dominio.com/)
+* [Correo](micorreo@midominio.com)
+* [LinkedIn](https://www.linkedin.com/in/ninaromayart/)
+* [Porfolio web](https://ninaromay.com/)
 
-## Instalación 
-Este proyecto no necesita de instalación. Simplemente abre la carpeta o haz doble click en el .html
+## Installation
+Download folder, open terminal on container folder, and write `npm i`
   
 ## Licencia 📄
 MIT Public License v3.0
-No puede usarse comencialmente.
+Can't be used comercially.
