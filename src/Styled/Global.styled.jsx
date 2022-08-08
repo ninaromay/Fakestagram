@@ -150,6 +150,8 @@ export const Wrapper = styled.div`
     width: 90%;
     padding-right: 3em;
     padding-left: 2em;
+
+
   }
   
   &.Line{
@@ -186,6 +188,11 @@ export const Wrapper = styled.div`
 
     margin-left: 1em;
     padding: 0.5em;
+
+    @media screen and (max-width: 830px){
+      width: 100%;
+      
+    }
   }
 
   &.Home{
@@ -201,6 +208,10 @@ export const Wrapper = styled.div`
     @media screen and (max-width:1000px){
       justify-content: center;
     }
+
+    @media screen and (max-width: 830px){
+      width: 90%;
+    }
   }
   
   &.Posts{
@@ -212,6 +223,11 @@ export const Wrapper = styled.div`
     flex-flow: column;
     justify-content: flex-start;
     align-items: flex-start;
+
+    @media screen and (max-width: 830px){
+      width: 90%;
+
+    }
   }
 
   &.Suggested{

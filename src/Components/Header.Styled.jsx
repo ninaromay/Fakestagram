@@ -6,6 +6,10 @@ export const LogoI = styled.img`
     &.Search{
         width: 1.2em;
         margin: 0;
+
+        @media screen and (max-width: 830px){
+            width: 1em;
+        }
     }
     &.Search-searching{
      opacity: 0
