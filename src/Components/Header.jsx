@@ -10,6 +10,8 @@ const Header = () => {
     let { data , setData }         = useContext(GlobalContext);
     let [ onSearch , setOnSearch ] = useState(false)
     let { menu } = data 
+    let { users, setUsers }        = useContext(GlobalContext)
+
     
     const [createPost, setCreatePost] = useState(false)
     const [profileTabs, setProfileTabs] = useState(false)
@@ -80,7 +82,7 @@ const Header = () => {
                                     </Wrapper>
                                     }
                                     { card.id === 5 && <Wrapper className='Profile' onClick={()=> activar(card.id)}>
-                                        <Logo src={card.src} />
+                                        <Logo src={users[0].user.img} />
                                     </Wrapper>
                                     }
                                 </CardLi>   
