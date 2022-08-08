@@ -2,7 +2,7 @@
 ![Fakestagram-img](https://github.com/ninaromay/Fakestagram/blob/main/public/home_capture.PNG?raw=true)
 
 ## Live
-- [Github-pages-of-this-project](URL-de-github-pages-de-este-proyecto)
+- [View-website-on-Netlify](https://fluffy-fakestagram.netlify.app/)
 - [See-Api-code](https://github.com/ninaromay/fakestagram-api)
 
 ## About the project 📑
