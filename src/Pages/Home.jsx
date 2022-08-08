@@ -15,6 +15,9 @@ export const Home = () => {
     let { users, setUsers } = useContext(GlobalContext);
     let {suggested, setSuggested } = useContext(GlobalContext);
 
+    let main_user = users.filter(user => user.user.id === 0)
+    // console.log(main_user[0]);
+
     const setUnsearch = () => setData({...data, menu : { ...menu, onSearch : false}})
     
     const shortName = (value) => {return value.slice(0, 9) + '...'}
@@ -62,8 +65,8 @@ export const Home = () => {
                             users.map( (use) => 
                                 use.user.id > 0 && <CardLi className='Story-wrapper' key={use.user.id}>
                                     <NavLink to={'/profile/'+ use.user.id}>
-                                    <Stories  src='/assets/ring.png'  className="Ring"  />
-                                    <Stories  src={use.user.img} className="Story" />
+                                        <Stories  src='/assets/ring.png'  className="Ring"  />
+                                        <Stories  src={use.user.img} className="Story" />
                                     </NavLink>
                                     <Text className="Story-name">{ use.user.name.length < 10 ? use.user.name : shortName(use.user.name)}</Text>
                                 </CardLi>
@@ -127,12 +130,12 @@ export const Home = () => {
                 <Wrapper className="Suggested">
                     <Post className='Post-header'>
                         <Post className='Post-head'>
-                            <NavLink to={'/profile'}>
-                            <Stories src={users[0].user.img} />
+                            <NavLink to={'/profile/0'}>
+                            <Stories src={main_user[0].user.img} />
                             </NavLink>
                             <Post className='Post-text-sug'>
-                                <Text className="Post-user-name">{users[0].user.name}</Text>
-                                <Text className="Post-user-content">{users[0].user.text}</Text>
+                                <Text className="Post-user-name">{main_user[0].user.name}</Text>
+                                <Text className="Post-user-content">{main_user[0].user.text}</Text>
                             </Post>
                         </Post>
                         <Text className='Switch'>Switch</Text>
