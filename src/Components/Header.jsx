@@ -29,7 +29,6 @@ const Header = () => {
     };
 
     const searching = () => {
-        console.log(onSearch)
         setOnSearch( !onSearch )
     }
 
@@ -44,7 +43,7 @@ const Header = () => {
     return (
         <div className="Header">
             <Wrapper>
-                    <Wrapper className="Menu-bg"></Wrapper>
+                <Wrapper className="Menu-bg"></Wrapper>
                 <Wrapper className="Menu">
                     <Wrapper className="Line"></Wrapper>
                     <Wrapper className="Menu-wrapper Logo">

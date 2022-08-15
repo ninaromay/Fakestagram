@@ -18,7 +18,7 @@ import { Template } from './Pages/Template'
 import { PostView } from './Components/PostView'
 
 
-const App = () => {
+export const App = () => {
 
   const { data, users, suggested, loading, error } = useFetch(bbdd)
 
@@ -57,4 +57,3 @@ const App = () => {
   )
 }
 
-export default App

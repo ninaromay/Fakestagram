@@ -60,7 +60,7 @@ export const Home = () => {
                       <Wrapper className="Stories" slide={slide()}>
                           {
                             users.map( (use) => 
-                                use.user.id != 1 && <CardLi className='Story-wrapper' key={use.user.id}>
+                                use.user.id != 0 && <CardLi className='Story-wrapper' key={use.user.id}>
                                     <NavLink to={'/profile/'+ use.user.id}>
                                         <Stories  src='/assets/ring.png'  className="Ring"  />
                                         <Stories  src={use.user.img} className="Story" />
@@ -94,7 +94,7 @@ export const Home = () => {
                                     <Logo src={home.dots} />
                                 </Post>
                                 </Post>
-                                <PostImg  src={use.posts[j].img} onClick={() => viewable(post.id, i)}/>
+                                <PostImg  src={use.posts[j].img} onClick={() => viewable(j, i)}/>
                                 <Post className='Post-icons'>
                                 <Post className='Icons'>
                                     {home.icons.map((icon) => 
@@ -163,9 +163,10 @@ export const Home = () => {
                 </Wrapper>
             </Wrapper>
             {
-                view && <Wrapper className='View' onClick={()=> close}>
-                    <PostView post={users[uid].posts[pid]} view={view} />
-                </Wrapper>
+                view && <>
+                    <Wrapper className='View' onClick={()=> close()}></Wrapper>
+                    <PostView post={users[uid].posts[pid]} user={users[uid].user}/>
+                </>
             }
         </div>
     )

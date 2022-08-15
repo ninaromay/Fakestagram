@@ -406,11 +406,13 @@ export const Wrapper = styled.div`
     height: 100vh;
     position: fixed;
     background-color: #000000a5 ;
-    top: -50%;
-    left: -50%;
+    top: 0;
+    left: 0;
     z-index: 4;
+
     /* overflow: hidden; */
   }
+
 `
 export const Logo = styled.img`
   width: 1.3em;
