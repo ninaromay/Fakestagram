@@ -31,6 +31,7 @@ Get a first look of the project
 ![Img-01](https://github.com/ninaromay/Fakestagram/blob/main/public/home_capture.PNG?raw=true)
 ![Img-02](https://github.com/ninaromay/Fakestagram/blob/main/public/profile_capture.PNG?raw=true)
 ![Img-03](https://github.com/ninaromay/Fakestagram/blob/main/public/nav_capture.PNG?raw=true)
+![Img-04](https://raw.githubusercontent.com/ninaromay/Fakestagram/main/public/post_capture.PNG)
 
 ## Autor ✒️
 **Nina Romay**
