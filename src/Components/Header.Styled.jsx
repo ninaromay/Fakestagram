@@ -3,6 +3,11 @@ import styled from "styled-components";
 export const LogoI = styled.img`
     width: 7em;
     margin-left: -1em;
+
+    @media screen and (max-width: 830px){
+      width: 90%;
+      margin: 0;
+    }
     &.Search{
         width: 1.2em;
         margin: 0;
@@ -42,7 +47,11 @@ export const CardUl = styled.ul`
     &.Menu-ul{
         width: 100%;
         margin-left: 2em;  
-        margin-right: -0.5em;      
+        margin-right: -0.5em;   
+        @media screen and (max-width: 830px){
+            margin:0 0.1em;
+            min-width: 11em;
+        }   
     }
 
     &.Stories{
@@ -51,7 +60,6 @@ export const CardUl = styled.ul`
         overflow-x: hidden;
         margin-bottom: 1.5em;
     }
-    
 `
 
 export const CardLi = styled.li`
@@ -72,11 +80,7 @@ export const CardLi = styled.li`
         flex-flow: column;
         justify-content: center;
         align-items: center;
-
     }
-
-
-
 `
 
 export const SearchBar = styled.div`
@@ -98,7 +102,10 @@ export const SearchBar = styled.div`
         opacity: 0;
     }
 
-    `
+    @media screen and (max-width: 600px){
+        height: auto; 
+    }    
+`
 export const SearchI = styled.input`
     width: 85%;
     height: 2.4em;
@@ -111,15 +118,16 @@ export const SearchI = styled.input`
         width: 95%;
         outline: none;
     }
-    
+    @media screen and (max-width: 600px){
+        height: auto;
+        top: 0.3em;
+        right: -0.5em;
+    }
 `
 
 export const TextPopUps = styled.p`
         font-size: 1em;
         color: black;
-    &.New-post{
-
-    }
     &.Tab{
         margin-left: 1em;
         font-size: 0.8em;

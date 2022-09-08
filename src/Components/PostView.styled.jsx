@@ -33,6 +33,12 @@ export const ViewWrapper = styled.div`
         flex-flow: row;
         justify-content: center;
         align-items: center;
+
+        @media screen and (max-width: 600px){
+            width: 98%;
+            margin: 1%;
+            flex-flow: column;
+        }
     }
 
     &.Post_x{
@@ -45,6 +51,9 @@ export const ViewWrapper = styled.div`
     &.Post_View-img{
         width: 64%;
         background-color: black;
+        @media screen and (max-width: 600px){
+            width: 100%;
+        }
     }
 
     &.Post_View-comments{
@@ -54,6 +63,10 @@ export const ViewWrapper = styled.div`
         border-radius: 0 0.4em 0.4em 0;
 
         position: relative;
+        @media screen and (max-width: 600px){
+            width:100%;
+            border-radius: 0;
+        }
     }
 
     &.Post_View-top{
@@ -69,6 +82,10 @@ export const ViewWrapper = styled.div`
         padding: 1em;
 
         border-bottom: 1px solid lightgray;
+
+        @media screen and (max-width: 600px){
+            padding: 0.2em;
+        }
     }
 
     &.Poster_dot{
@@ -93,6 +110,9 @@ export const ViewWrapper = styled.div`
     &.Post_View-middle{
         padding: 1em;
         /* background-color: yellow; */
+        @media screen and (max-width: 600px){
+            padding: 0.2em;   
+        }
     }
 
     &.Post_description{
@@ -122,7 +142,10 @@ export const ViewWrapper = styled.div`
         bottom: 0; 
         left: 0;
 
-
+        @media screen and (max-width: 600px){
+            background-color: white;
+            z-index: 2;   
+        }
     }
 
     &.Comment{
@@ -143,7 +166,6 @@ export const ViewWrapper = styled.div`
         flex-flow: row;
         justify-content: flex-start;
         align-items: center;
-        
     }
 
     &.Likes{
@@ -159,6 +181,9 @@ export const ImgPost = styled.img`
         width: 100%;
         height: 90vh;
         /* background-color: red; */
+        @media screen and (max-width: 600px){
+            height: 50vh;
+        }
     }
 
     &.Profile_img{
@@ -174,6 +199,10 @@ export const ImgPost = styled.img`
         position: absolute;
         top: 1.3em;
         right: 1em;
+
+        @media screen and (max-width: 600px){
+            top: 0.5em;
+        }
     }
 
     &.Emoji{

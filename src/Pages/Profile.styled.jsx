@@ -9,6 +9,12 @@ export const ProfilePost = styled.img`
         
         border-radius: 50%;
         margin-top: 5rem;
+
+        @media screen and (max-width: 600px) {
+            width: 5em;
+            height: 5em;
+            margin-top: 3rem;
+        }
     }
 
     &.Post-img{
@@ -16,6 +22,11 @@ export const ProfilePost = styled.img`
         width: 18.3em;
 
         background-color: red;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+            height: 8em;
+        }
     }
 
     &.Post-layer{
@@ -54,6 +65,12 @@ export const ProfileTab = styled.button`
 
         border-radius: 0.4em;
         border: 1px solid lightgrey;
+
+        @media screen and (max-width: 600px){
+            padding: 0.2em 0.25em;
+            font-size: 0.6em;
+            margin: 0 1rem 0 1em;
+        }
     }
 
     &.Tabs{
@@ -85,6 +102,7 @@ export const ProfileWrapper = styled.div`
         /* background-color: red; */
         margin: 0 auto;
         padding-top: 2em;
+        overflow: hidden;
     }
 
     &.Top{
@@ -97,6 +115,10 @@ export const ProfileWrapper = styled.div`
         justify-content: space-between;
         align-items: flex-start;
         flex-flow: row;
+        
+        @media screen and (max-width: 600px){
+            margin: 2em auto 0.2em;
+        }
     }
 
     &.Bottom{
@@ -115,6 +137,10 @@ export const ProfileWrapper = styled.div`
         justify-content: center;
         align-items: center;
         flex-flow: row;
+
+        @media screen and (max-width: 600px) {
+            margin: 0;
+        }
     }
 
     &.Text-wrapper{
@@ -139,6 +165,13 @@ export const ProfileWrapper = styled.div`
         justify-content: flex-start;
         align-items: center;
         flex-flow: row;
+        
+        @media screen and (max-width: 600px){
+            p{
+                font-size: 1.5em;
+                line-height: 0em;
+            }   
+        }
     }
 
     &.Text-middle{
@@ -155,15 +188,21 @@ export const ProfileWrapper = styled.div`
         p{
             margin-right:  2rem;
         }
+
+        @media screen and (max-width: 600px){
+            min-height: 1vh;
+            margin: 0.2em 0;
+            p{
+                font-size: 0.8em;
+                margin-right: 1.7em;
+            }
+        }
     }
 
     &.Text-bottom{
         min-height: 5vh;
         margin: 0;
         /* background-color: yellow; */
-
-        p{
-        }
     }
 
     &.Tabs-wrapper{
@@ -172,7 +211,6 @@ export const ProfileWrapper = styled.div`
 
     &.Posts-tab{
         width: 100%;
-        /* background-color: gray; */
 
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -180,11 +218,14 @@ export const ProfileWrapper = styled.div`
         gap: 0.5rem;
 
         position: static;
+        z-index: 2;
+        @media screen and (max-width: 600px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     &.Videos-tab{
         width: 100%;
-        /* background-color: gray; */
 
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -194,8 +235,10 @@ export const ProfileWrapper = styled.div`
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 3;
-
+        z-index: 2;
+        @media screen and (max-width: 600px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     &.Saved-tab{
@@ -219,6 +262,9 @@ export const ProfileWrapper = styled.div`
         top: 0;
         left: 0;
         z-index: 2;
+        @media screen and (max-width: 600px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     &.Tabs-buttons{
@@ -230,6 +276,10 @@ export const ProfileWrapper = styled.div`
         align-items: center;
         justify-content: space-between;
         flex-flow: row;
+
+        @media screen and (max-width: 600px) {
+            width: 90%;
+        }
     }
 
     &.Act{
@@ -285,6 +335,12 @@ export const ProfileWrapper = styled.div`
         align-items: center;
         justify-content: center;
         flex-flow: row;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+            overflow: hidden;
+            flex-flow: row wrap;
+        }
     }
 `
 
@@ -301,11 +357,16 @@ export const ProfileInfo = styled.p`
         font-size: 1em;
         font-weight: bold;
         margin-bottom: -1.2em;
-        
+        @media screen and (max-width: 600px){
+            font-size: 0.9em;
+        }
     }
     
     &.User-content{
         font-size: 1em;
+        @media screen and (max-width: 600px){
+            font-size: 0.85em;
+        }
     }
 
     span {
@@ -346,6 +407,10 @@ export const ProfileInfo = styled.p`
 
         &:hover{
             text-decoration: underline;
+        }
+
+        @media screen and (max-width: 600px) {
+            text-align: right;
         }
     }
 `

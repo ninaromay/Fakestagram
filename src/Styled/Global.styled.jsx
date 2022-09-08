@@ -139,11 +139,16 @@ export const Wrapper = styled.div`
 
  &.Menu-wrapper{
     width: 100%;
-    
+    @media screen and (max-width: 830px){
+      margin-right: 0.2em;
+    }
   }
 
   &.Logo{
     justify-content: flex-start;
+    @media screen and (max-width: 830px){
+      width: 70%;
+    }
   }
 
   &.Search{
@@ -151,7 +156,10 @@ export const Wrapper = styled.div`
     padding-right: 3em;
     padding-left: 2em;
 
-
+    @media screen and (max-width: 600px){
+      width: 80%;
+      padding: 0;
+    }
   }
   
   &.Line{
@@ -169,6 +177,10 @@ export const Wrapper = styled.div`
     position: fixed;
     top: 0;
     z-index: 3;
+
+    @media screen and (max-width: 600px){
+      width: 100%;
+    }
   }
 
   &.Menu{
@@ -193,6 +205,11 @@ export const Wrapper = styled.div`
       width: 100%;
       
     }
+
+    @media screen and (max-width: 600px){
+      width: 100%;
+      padding: 0;
+    }
   }
 
   &.Home{
@@ -212,6 +229,9 @@ export const Wrapper = styled.div`
     @media screen and (max-width: 830px){
       width: 90%;
     }
+    @media screen and (max-width: 600px){
+      width: 100%;
+    }
   }
   
   &.Posts{
@@ -226,7 +246,11 @@ export const Wrapper = styled.div`
 
     @media screen and (max-width: 830px){
       width: 90%;
+    }
 
+    @media screen and (max-width: 600px){
+      width: 100%;
+      padding: 0;
     }
   }
 
@@ -255,6 +279,7 @@ export const Wrapper = styled.div`
     align-items: flex-start;
 
     padding: 0.8em 0.8em 0.5em;
+    
   }
 
   &.Icons{
@@ -280,12 +305,13 @@ export const Wrapper = styled.div`
   
   &.Arrow-right{
     right: 2.5em;
-    
+    @media screen and (max-width: 830px){
+      right: 0.5em;
+    }
   }
   
   &.Arrow-left{
     left: 0.5em;
-
   }
 
   &.New-Post-wrapper{
@@ -297,7 +323,6 @@ export const Wrapper = styled.div`
     left: 0;
     z-index: 4;
     /* pointer-events: none; */
-
   }
   &.New-Post{
     width: 40%;
@@ -344,6 +369,10 @@ export const Wrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+
+    @media screen and (max-width: 600px){
+      
+    }
   }
 
   &.Profile-tab{
@@ -362,6 +391,11 @@ export const Wrapper = styled.div`
     align-items: flex-start;
 
     box-shadow: 0 0 10px 5px;
+
+    @media screen and (max-width: 600px){
+      width: 9.2em;
+      right: 2%;
+    }
   }
 
   &.Profile-tab-top{
@@ -378,6 +412,10 @@ export const Wrapper = styled.div`
         flex-flow: row;
         justify-content: flex-start;
         align-items: center;
+
+        @media screen and (max-width: 600px){
+          margin-left: 0.8em;
+        }
       }
     }
   }
@@ -389,6 +427,10 @@ export const Wrapper = styled.div`
     flex-flow: row;
     justify-content: flex-start;
     align-items: center;
+
+    @media screen and (max-width: 600px){
+        margin-left: 0.8em ;
+    }
   }
 
   &.Profile-logOut{
@@ -399,6 +441,10 @@ export const Wrapper = styled.div`
     width: 1.6em;
     height: 1.6em;
     border-radius: 50%;
+
+    @media screen and (max-width: 600px){
+
+    }
   }
 
   &.View{
